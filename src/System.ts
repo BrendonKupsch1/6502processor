@@ -36,7 +36,10 @@ class System extends Hardware {
 
     public startSystem(): void {
         this.log('created');
-        this._CPU.debug = false;
+
+        // commented line below enables and disables cpu
+        // this._CPU.debug = false;
+
         this._CPU.log('created');
     }
 

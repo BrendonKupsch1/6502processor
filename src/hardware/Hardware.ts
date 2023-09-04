@@ -11,7 +11,7 @@ export default class Hardware {
     log(message: string): void {
         if (this.debug) {
             const currentTime = new Date().getTime();
-            console.log('[HW - ${this.name} id: ${this.id} - ${currenttime}]: ${message}'); 
+            console.log(`[HW - ${this.name} id: ${this.id} - ${currentTime}]: ${message}`); 
         }
     }
     
