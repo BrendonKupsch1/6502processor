@@ -22,7 +22,7 @@ class System extends Hardware {
         super('System', 0);
 
 
-        this._CPU = new Cpu('Cpu', 0);
+        this._CPU = new Cpu(0);
         
         /*
         Start the system (Analogous to pressing the power button and having voltages flow through the components)
