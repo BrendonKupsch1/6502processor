@@ -1,9 +1,17 @@
-import {System} from "../System";
+import Hardware from './Hardware';
 
-export class Cpu {
+class Cpu extends Hardware {
+    construtor(id: number) {
+        super('Cpu', id);
+    }
 
-    constructor() {
-        
-        
+    log(message: string): void {
+        super.log(message);
+    }
+
+    getInfo(): string {
+        return '${super.getInfo()}';
     }
 }
+
+export default Cpu;
