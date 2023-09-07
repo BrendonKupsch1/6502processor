@@ -14,6 +14,8 @@ export default class Hardware {
             console.log(`[HW - ${this.name} id: ${this.id} - ${currentTime}]: ${message}`); 
         }
     }
+
+    
     
     getInfo(): string {
         return 'Name: ${this.name}, ID: ${this.id}';
