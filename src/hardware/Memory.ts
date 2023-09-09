@@ -20,11 +20,13 @@ class Memory {
         this.memory[i] = "00"; // set each element to 0x00
       }
     }
-
+  
     log(message: string): void {
         if (this.debug) {
             const currentTime = new Date().getTime();
-            console.log(); // enter output of hex iteration here to test
+            console.log(256); // enter output of hex iteration here to test
         }
     }
   }
+
+export default Memory;

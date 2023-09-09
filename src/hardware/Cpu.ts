@@ -1,4 +1,5 @@
 import Hardware from './Hardware';
+import Memory from './Memory';
 
 class Cpu extends Hardware {
     constructor(id: number) {
