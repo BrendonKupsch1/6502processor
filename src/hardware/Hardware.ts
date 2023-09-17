@@ -8,6 +8,15 @@ export default class Hardware {
         this.id = id;
     }
 
+    // hexadecimal number output
+    hexLog(num: number, length: number) {
+        let hexOutput = num.toString(16).toUpperCase();
+        while (hexOutput.length < length) {
+            hexOutput = '0' + hexOutput;
+        }
+        this.log(hexOutput)
+    }
+
     log(message: string): void {
         if (this.debug) {
             const currentTime = new Date().getTime();
