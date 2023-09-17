@@ -1,4 +1,4 @@
-import Hardware from './Hardware';
+import Hardware from "./Hardware";
 
 
 export class Memory extends Hardware {

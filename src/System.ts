@@ -1,7 +1,6 @@
 // import statements for hardware
 import Hardware from './hardware/Hardware';
 import Cpu from "./hardware/Cpu";
-import Memory from "./hardware/Memory";
 
 
 /*
@@ -50,6 +49,3 @@ class System extends Hardware {
 
     }
 }
-
-console.table(new Memory(256)); // test memory 
-let system: System = new System();
