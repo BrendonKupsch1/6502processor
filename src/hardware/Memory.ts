@@ -64,14 +64,14 @@ export class Memory extends Hardware {
         }
     }
 
-    // displays _MAR in memory
+    // displays memory in hex
     public displayMemory(length: number, padding: number): void {
         for (let i = 0x00; i < length; i++) {
             if (i < 0x10000) {
                 this.hexLog(this.hexList[i], padding);
             }
             else {
-                console.log("[HW - " + this.name + "id:" + this.id + " - " + new Date() + "]:Address : " + i + " is out of range");
+                console.log("[HW - " + this.name + "id:" + this.id + " - " + new Date() + "]:Address : " + i + "contains Value: ERR [hexValue conversion]: number undefined");
                 break;
             }
         }

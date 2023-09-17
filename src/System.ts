@@ -47,6 +47,7 @@ export class System extends Hardware {
         this._Memory.log('created');
 
         this._Memory.initMemory();
+        this._Memory.displayMemory(0x14, 2);
 
     }
 
