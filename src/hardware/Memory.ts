@@ -1,10 +1,11 @@
 import Hardware from "./Hardware";
+import { System } from "../System";
 
 
 export class Memory extends Hardware {
     private hexList = new Array<number>(0x10000);
-    private address: number = 0x0000;
-    private data: number = 0x00;
+    private _MAR: number = 0x0000;
+    private _MDR: number = 0x00;
     private _Memory = new Array<number>(0xffff);
 
 
@@ -13,35 +14,35 @@ export class Memory extends Hardware {
         this.log("Memory length: " + this._Memory.length.toString());
     }
 
-    public getAdress() {
-        return this.address;
+    public getMAR() {
+        return this._MAR;
     }
 
-    public setAdress(Adress: number) {
-        this.address = Adress;
+    public setMAR(mAR: number) {
+        this._MAR = mAR;
     }
 
-    public getData() {
-        return this.data;
+    public getMDR() {
+        return this._MDR;
     }
 
-    public setData(Data: number) {
-        this.data = Data;
+    public setMDR(mDR: number) {
+        this._MDR = mDR;
     }
 
     public getMemory() {
         return this._Memory;
     }
 
-    public setMemory(Memory: Array<number>) {
-        this._Memory = Memory;
+    public setMemory(mem: Array<number>) {
+        this._Memory = mem;
     }
 
 
     public reset(): void {
-        this.address = 0x00;
-        this.address = 0x0000;
-        this.data = 0x00;
+        this._MAR = 0x00;
+        this._MAR = 0x0000;
+        this._MDR = 0x00;
 
         // Clear memory
         for (let i = 0x00; i < this._Memory.length; i++) {
@@ -50,11 +51,11 @@ export class Memory extends Hardware {
     }
 
     public read(): void {
-        this.setData(this._Memory[this.getAdress()]);
+        this.setMDR(this._Memory[this.getMAR()]);
     }
 
     public write(): void {
-        this._Memory[this.getAdress()] = this.getData();
+        this._Memory[this.getMAR()] = this.getMDR();
     }
 
     public initMemory(): void {
@@ -63,18 +64,16 @@ export class Memory extends Hardware {
         }
     }
 
-    // displays address in memory
+    // displays _MAR in memory
     public displayMemory(length: number, padding: number): void {
         for (let i = 0x00; i < length; i++) {
             if (i < 0x10000) {
                 this.hexLog(this.hexList[i], padding);
             }
             else {
-                console.log("[HW - " + this.name + "id:" + this.id + " - " + new Date() + "]:Adress : " + i + " is out of range");
+                console.log("[HW - " + this.name + "id:" + this.id + " - " + new Date() + "]:Address : " + i + " is out of range");
                 break;
             }
         }
     }
-
-
 }

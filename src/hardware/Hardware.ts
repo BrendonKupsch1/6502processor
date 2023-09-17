@@ -3,7 +3,7 @@ export default class Hardware {
     id:number;
     debug: boolean = true;
 
-    constructor(name: string, id: number) {
+    public constructor(name: string, id: number) {
         this.name = name;
         this.id = id;
     }
