@@ -12,6 +12,7 @@ export class Memory extends Hardware {
     constructor() {
         super("Memory", 0);
         this.log("Memory length: " + this._Memory.length.toString());
+        this.displayMemory(0x14, 2);
     }
 
     public getMAR() {
