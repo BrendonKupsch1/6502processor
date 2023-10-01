@@ -62,3 +62,8 @@ Type definitions to be used for Node.js. This should be installed when you run `
 See : https://www.npmjs.com/package/@types/node
 If they are not installed you can manually do so this way:
 `npm install @types/node --save-dev`
+
+Brendon Kupsch's notes:
+    Using GitHub Copilot to help write this code.
+    Copilot will begin brackets but rarely predicts closing brackets, leading to some annoying formatting problems that need to be manually fixed. This gets very annoying with complicated code because copilot messes up on the end of most functions.
+    Copilot is extremely helpful for commenting code. It does a very good job at reading your code and creating a comment very close to what I would write myself.

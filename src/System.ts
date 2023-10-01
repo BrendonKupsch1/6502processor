@@ -1,7 +1,9 @@
+// Brendon Kupsch's notes are at the bottom of README.md
 // import statements for hardware
 import Hardware from './hardware/Hardware';
 import Cpu from "./hardware/Cpu";
 import { Memory } from "./hardware/Memory";
+import { toUnicode } from 'punycode';
 
 /*
     Constants
@@ -37,7 +39,7 @@ export class System extends Hardware {
 
     }
 
-    public startSystem(): void {
+    public startSystem(): boolean {
         this.log('created');
 
         // commented line below enables and disables cpu
@@ -47,7 +49,9 @@ export class System extends Hardware {
         this._Memory.log('created');
 
         this._Memory.initMemory();
-        this._Memory.displayMemory(0x14, 2);
+        // this._Memory.displayMemory(0x14, 2);
+        
+        return true;
 
     }
 
@@ -57,3 +61,5 @@ export class System extends Hardware {
 
     }
 }
+
+let system: System = new System();
