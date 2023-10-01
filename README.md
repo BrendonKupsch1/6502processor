@@ -67,3 +67,5 @@ Brendon Kupsch's notes:
     Using GitHub Copilot to help write this code.
     Copilot will begin brackets but rarely predicts closing brackets, leading to some annoying formatting problems that need to be manually fixed. This gets very annoying with complicated code because copilot messes up on the end of most functions.
     Copilot is extremely helpful for commenting code. It does a very good job at reading your code and creating a comment very close to what I would write myself.
+
+    I had no idea this class was pretty much a pre-requisite for OS, so I am taking them at the same time. ALl my time has been spent on OS and it has made this work very easy for me.

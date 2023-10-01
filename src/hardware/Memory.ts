@@ -1,5 +1,6 @@
 import Hardware from "./Hardware";
 import { System } from "../System";
+import { CloockListener } from "./imp/ClockListener";
 
 
 export class Memory extends Hardware {
@@ -100,7 +101,8 @@ export class Memory extends Hardware {
 
 
     public pulse(): void {
-        console.log("[HW - " + this.name + "id:" + this.id + " - " + new Date() + "]: Received clock pulse");
+        let time: number = new Date().getTime();
+        console.log("[HW - " + this.name + " id: " + this.id + " - " + time + "]: Received clock pulse");
 
     }
     

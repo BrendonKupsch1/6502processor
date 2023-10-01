@@ -12,7 +12,7 @@ class Cpu extends Hardware implements CloockListener {
     pulse() {
         let time: number = new Date().getTime();
         this.cpuClockCount++;
-        console.log("HW " + this.name + " id " + this.id + " " + time + " Received clock pulse - CPU CLock Count: " + this.cpuClockCount);
+        console.log("[HW - " + this.name + " id: " + this.id + " - " + time + "] Received clock pulse - CPU CLock Count: " + this.cpuClockCount);
     }
  
     log(message: string): void {
