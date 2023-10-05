@@ -14,6 +14,7 @@ export class Memory extends Hardware {
     constructor() {
         super("Memory", 0);
         this.log("Memory length: " + this._Memory.length.toString());
+        this.displayMemory(0x14, 2);
     }
 
     public getMAR() {
@@ -63,12 +64,6 @@ export class Memory extends Hardware {
         this._Memory[this.getMAR()] = this.getMDR();
 
     }
-
-
-
-
-
-
 
     //sets all values in memory to 0x00
     public initMemory(): void {

@@ -3,7 +3,7 @@
 import Hardware from './hardware/Hardware';
 import Cpu from "./hardware/Cpu";
 import { Memory } from "./hardware/Memory";
-import { toUnicode } from 'punycode';
+// import { toUnicode } from 'punycode';
 import { CloockListener } from './hardware/imp/ClockListener';
 import { Clock } from './hardware/Clock';
 
