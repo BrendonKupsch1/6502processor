@@ -1,7 +1,11 @@
+// Brendon Kupsch's notes are at the bottom of README.md
 // import statements for hardware
 import Hardware from './hardware/Hardware';
 import Cpu from "./hardware/Cpu";
 import { Memory } from "./hardware/Memory";
+import { toUnicode } from 'punycode';
+import { CloockListener } from './hardware/imp/ClockListener';
+import { Clock } from './hardware/Clock';
 
 /*
     Constants
@@ -18,6 +22,7 @@ const CLOCK_INTERVAL= 500;               // This is in ms (milliseconds) so 1000
 export class System extends Hardware {
     private _CPU : Cpu = null;
     private _Memory : Memory = null;
+    private _Clock : Clock = null;
 
     constructor() {
         super('System', 0);
@@ -26,6 +31,8 @@ export class System extends Hardware {
         this._CPU = new Cpu(0);
 
         this._Memory = new Memory();
+
+        this._Clock = new Clock();
         
         /*
         Start the system (Analogous to pressing the power button and having voltages flow through the components)
@@ -37,17 +44,30 @@ export class System extends Hardware {
 
     }
 
-    public startSystem(): void {
+    public startSystem(): boolean {
         this.log('created');
 
         // commented line below enables and disables cpu
         // this._CPU.debug = false;
 
+        // logs hardware
         this._CPU.log('created');
         this._Memory.log('created');
+        this._Clock.log('created');
 
+        //initializes memory
         this._Memory.initMemory();
-        this._Memory.displayMemory(0x14, 2);
+        // uncomment line below to test memory
+        // this._Memory.displayMemory(0x14, 2);
+
+        //inialize clock listeners
+        this._Clock.initClockListeners(this._CPU);
+        this._Clock.initClockListeners(this._Memory);
+
+        //starts clock
+        this._Clock.startClock(CLOCK_INTERVAL);
+        
+        return true;
 
     }
 
@@ -57,3 +77,5 @@ export class System extends Hardware {
 
     }
 }
+
+let system: System = new System();
