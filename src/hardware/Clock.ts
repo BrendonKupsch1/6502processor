@@ -4,22 +4,17 @@ import { CloockListener } from "./imp/ClockListener";
 export class Clock extends Hardware {
 
     public listenersList: Array<CloockListener> = [];
+    private inervalId: NodeJS.Timeout | null = null;
+    private clockInterval: number;
 
-    constructor() {
+    constructor(clockInterval: number) {
         super("Clock", 0);
+        this.clockInterval = clockInterval;
     }
 
     public initClockListeners(clock: CloockListener) {
         this.listenersList.push(clock);
-    }
-
-    public sendPulse() {
-        console.log("pulsing");
-
-        for (let clock of this.listenersList) {
-            clock.pulse();
-        }
-    }
+    
 
     public startClock(interval: number) {
 
