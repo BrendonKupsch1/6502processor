@@ -12,9 +12,9 @@ export default class Hardware {
     hexLog(num: number, length: number) {
         let hexOutput = num.toString(16).toUpperCase();
         while (hexOutput.length < length) {
-            hexOutput = '0' + hexOutput;
+            hexOutput = 0x00 + hexOutput;
         }
-        this.log(hexOutput)
+        return hexOutput;
     }
 
     log(message: string): void {
@@ -27,6 +27,6 @@ export default class Hardware {
     
     
     getInfo(): string {
-        return 'Name: ${this.name}, ID: ${this.id}';
+        return `NameL ${this.name}, id: ${this.id}`;
     }
 }
