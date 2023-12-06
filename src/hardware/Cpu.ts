@@ -6,9 +6,17 @@ import { MMU } from './MMU';
 class Cpu extends Hardware implements CloockListener {
 
     public cpuClockCount: number = 0;
+    public pipeLine: number = 1;
+    public programCounter: number = 0x0000;
+    public xRegister: number = 0x00;
+    public yRegister: number = 0x00;
+    public zFlag: number = 0;
+    private accNum; number;
 
-    constructor(id: number) {
-       super('Cpu', id);
+    constructor() {
+       super(0, "CPU");
+
+       this.log("CPU Initialized");
     }
 
     pulse() {
