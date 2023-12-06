@@ -1,11 +1,11 @@
 export default class Hardware {
-    name: string;
-    id:number;
-    debug: boolean = true;
+    public id: number;
+    public name: String;
+    private debug: boolean = true;
 
-    public constructor(name: string, id: number) {
+    public constructor(iD, name) {
+        this.id = iD;
         this.name = name;
-        this.id = id;
     }
 
     // hexadecimal number output

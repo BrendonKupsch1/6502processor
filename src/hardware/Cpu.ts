@@ -30,16 +30,54 @@ class Cpu extends Hardware implements CloockListener {
         if (this.pipeLine == 1) {
             this.fetch();
         }
+
+        if (this.pipeLine == 2) {
+            this.decode();
+        }
+
+        if (this.pipeLine == 3) {
+            this.execute();
+        }
+
+        if (this.pipeLine == 4) {
+            this.writeBack();
+        }
+
+        else if (this.pipeLine == 5) {
+            this.interruptCheck();
+        }
+        this.writeBack();
     }
 
     public fetch(): void {
         this.instructionRegister = this.mmu.readNow(this.programCounter);
+        this.programCounter++;
     }
 
     public decode(): void {
+        if ((this.instructionRegister == 0xA9)
+        {
+
+        }
+
+        if ((this.instructionRegister == 0xAD)
+        {
+
+        }
+
+        else if (this.pipeLine == 0) {
+            
+        }
     }
 
     public execute(): void {
+    }
+
+    public interruptCheck(): void {
+        
+    }
+
+    public writeBack(): void {
     }
  
     log(message: string): void {
