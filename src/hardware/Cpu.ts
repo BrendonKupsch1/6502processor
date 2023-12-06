@@ -55,12 +55,12 @@ class Cpu extends Hardware implements CloockListener {
     }
 
     public decode(): void {
-        if ((this.instructionRegister == 0xA9)
+        if ((this.instructionRegister == 0xA9))
         {
 
         }
 
-        if ((this.instructionRegister == 0xAD)
+        if ((this.instructionRegister == 0xAD))
         {
 
         }
@@ -71,6 +71,98 @@ class Cpu extends Hardware implements CloockListener {
     }
 
     public execute(): void {
+        if (this.instructionRegister == 0xA9) {
+            // load constant with read now in acc
+            this.accNum = this.mmu.readNow(this.programCounter);
+            this.programCounter++;
+        }
+        else if (this.instructionRegister == 0xAD) {
+            // load acc from mem
+            this.accNum = this.mmu.readFromMem(this.mmu.getLowBit(), this.mmu.getHighBit());
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0x8D) {
+            // store acc in mem
+            this.mmu.writeToMem(this.mmu.getLowBit(), this.mmu.getHighBit(), this.accNum);
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0x6D) {
+            // add with carry
+            this.accNum += this.mmu.readFromMem(this.mmu.getLowBit(), this.mmu.getHighBit());
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0xA2) {
+            // load x register with constant
+            this.xRegister = this.mmu.getLowBit();
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0xAE) {
+            // load x register from mem
+            this.xRegister = this.mmu.readFromMem(this.mmu.getLowBit(), this.mmu.getHighBit());
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0xA0) {
+            // load y register with constant
+            this.yRegister = this.mmu.getHighBit();
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0xAC) {
+            // load y register from mem
+            this.yRegister = this.mmu.readNow(this.programCounter);
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0xA8) {
+            // load y register from acc
+            this.yRegister = this.mmu.readFromMem(this.mmu.getLowBit(), this.mmu.getHighBit());
+            this.pipeLine = 5;
+        }
+        else if (this.instructionRegister == 0xEA) {
+            // no operation
+        }
+        else if (this.instructionRegister == 0xEC) {
+            if (this.xRegister == this.mmu.readNow(this.programCounter)) {
+                this.zFlag = 1;
+                this.pipeLine =5;
+            }
+        }
+        else if (this.instructionRegister == 0xD0) {
+            // branch if z flag is 0 
+            if (this.zFlag == 0) {
+                this.programCounter += this.mmu.readNow(this.programCounter);
+                this.pipeLine = 5;
+            }
+        }
+        else if (this.instructionRegister == 0xEE) {
+            // increment value of byte
+            if (this.pipeLine == 2) {
+                this.accNum = this.mmu.readFromMem(this.mmu.getLowBit(), this.mmu.getHighBit());
+                this.pipeLine = 3;
+            }
+            else if (this.pipeLine == 3) {
+                this.accNum++;
+                this.pipeLine = 4;
+            }
+        }
+        else if (this.instructionRegister == 0xFF) {
+            // system call
+            if (this.xRegister == 0x01) {
+                console.log(this.yRegister);
+                this.programCounter++;
+            }
+            else if (this.xRegister == 0x02) {
+                this.programCounter = this.mmu.readNow(this.programCounter);
+                if (this.mmu.readNow(this.programCounter) != 0x00) {
+                    console.log(Ascii.asciiCode(this.mmu.readNow(this.programCounter)));
+                    this.pipeLine = 5;
+                }
+            }
+        }
+        else if (this.instructionRegister == 0x00) {
+            // break
+            // not sure about this
+            this.pipeLine = 0;
+        }
+
     }
 
     public interruptCheck(): void {

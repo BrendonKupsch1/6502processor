@@ -20,11 +20,11 @@ export class MMU extends Hardware {
         this._lowBit = value;
     }
 
-    public getHighBitL(): number {
+    public getHighBit(): number {
         return this._highBit;
     }
 
-    public setHighBitL(value: number) {
+    public setHighBit(value: number) {
         this._highBit = value;
     }
 
