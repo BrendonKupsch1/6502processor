@@ -1,5 +1,7 @@
+import { System } from '../System';
 import Hardware from './Hardware';
 import { CloockListener } from './imp/ClockListener';
+import { MMU } from './MMU';
 
 class Cpu extends Hardware implements CloockListener {
 
