@@ -4,7 +4,7 @@ import { Memory } from "./Memory";
 export class MMU extends Hardware {
     private memory: Memory = null;
     private _lowBit: number = null;
-    private _highBitL: number = null;
+    private _highBit: number = null;
 
     constructor(id: number, name: string, debug: boolean, memory: Memory) {
         super(name, id);
@@ -21,11 +21,11 @@ export class MMU extends Hardware {
     }
 
     public getHighBitL(): number {
-        return this._highBitL;
+        return this._highBit;
     }
 
     public setHighBitL(value: number) {
-        this._highBitL = value;
+        this._highBit = value;
     }
 
     public memoryDump(first: number, second: number) {

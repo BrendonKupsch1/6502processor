@@ -11,7 +11,9 @@ class Cpu extends Hardware implements CloockListener {
     public xRegister: number = 0x00;
     public yRegister: number = 0x00;
     public zFlag: number = 0;
-    private accNum; number;
+    private accNum: number;
+    private instructionRegister: number = 0x00;
+    private mmu: MMU = null;
 
     constructor() {
        super(0, "CPU");
@@ -23,6 +25,21 @@ class Cpu extends Hardware implements CloockListener {
         let time: number = new Date().getTime();
         this.cpuClockCount++;
         console.log("[HW - " + this.name + " id: " + this.id + " - " + time + "] Received clock pulse - CPU CLock Count: " + this.cpuClockCount);
+
+        // pipeline logic
+        if (this.pipeLine == 1) {
+            this.fetch();
+        }
+    }
+
+    public fetch(): void {
+        this.instructionRegister = this.mmu.readNow(this.programCounter);
+    }
+
+    public decode(): void {
+    }
+
+    public execute(): void {
     }
  
     log(message: string): void {
