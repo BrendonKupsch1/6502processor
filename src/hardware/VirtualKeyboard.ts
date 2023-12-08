@@ -27,7 +27,20 @@ export class VirtualKeyboard extends Hardware implements Interrupt {
     name: String;
 
     private monitorKeys() {
-        
+        var stdin = process.stdin;
+
+        stdin.setRawMode(true);
+
+        stdin.setEncoding(null);
+
+        stdin.on('data', function (key) {
+            let keyPressed: String = key.toString();
+            this.log("Key Pressed: " + keyPressed);
+            if (key.toString === '\u0003') {
+                process.exit();
+            }
+            this.InterruptController.acceptInterrupt(this);
+        }.bind(this));
     }
 
 }

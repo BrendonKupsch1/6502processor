@@ -174,7 +174,7 @@ export class Cpu extends Hardware implements ClockListener {
         }
         else if (this.instructionRegister == 0x00) {
             // break
-            // not sure about this
+            process.exit();
             this.pipeLine = 0;
         }
 
