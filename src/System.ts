@@ -4,8 +4,9 @@ import { Hardware } from './hardware/Hardware';
 import { Cpu } from "./hardware/Cpu";
 import { Memory } from "./hardware/Memory";
 // import { toUnicode } from 'punycode';
-import { CloockListener } from './hardware/imp/ClockListener';
+import { ClockListener } from './hardware/imp/ClockListener';
 import { Clock } from './hardware/Clock';
+import { MMU } from './hardware/MMU';
 
 /*
     Constants
@@ -23,18 +24,35 @@ export class System extends Hardware {
     private _CPU : Cpu = null;
     private _Memory : Memory = null;
     private _Clock : Clock = null;
+    private _MMU: MMU = null;
 
+    public running: boolean = false;
 
     constructor() {
-        super('System', 0);
+        super(0, 'System');
 
-
-        this._CPU = new Cpu(0);
+        this._CPU = new Cpu();
 
         this._Memory = new Memory();
 
         this._Clock = new Clock();
+
+        this._MMU = new MMU(0, "MMU", true, this._Memory);
+
+        this._MMU.writeImediate(0x0000, 0xA9);
+        this._MMU.writeImediate(0x0001, 0x0D);
+        this._MMU.writeImediate(0x0002, 0xA9);
+        this._MMU.writeImediate(0x0003, 0x1D);
+        this._MMU.writeImediate(0x0004, 0xA9);
+        this._MMU.writeImediate(0x0005, 0x2D);
+        this._MMU.writeImediate(0x0006, 0xA9);
+        this._MMU.writeImediate(0x0007, 0x3F);
+        this._MMU.writeImediate(0x0008, 0xA9);
+        this._MMU.writeImediate(0x0009, 0xFF);
+        this._MMU.writeImediate(0x000A, 0x00);
         
+        this._MMU.memoryDump(0x00, 0x0A);
+
         /*
         Start the system (Analogous to pressing the power button and having voltages flow through the components)
         When power is applied to the system clock, it begins sending pulses to all clock observing hardware
@@ -67,15 +85,17 @@ export class System extends Hardware {
 
         //starts clock
         this._Clock.startClock(CLOCK_INTERVAL);
+
+        this._CPU.setDebug(false);
+        this.setDebug(false);
+
+        super.log('started');
         
         return true;
-
     }
 
     public stopSystem(): boolean {
-
         return false;
-
     }
 }
 

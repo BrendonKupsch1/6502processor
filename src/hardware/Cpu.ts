@@ -1,11 +1,11 @@
 import { System } from '../System';
 import { Hardware } from './Hardware';
-import { CloockListener } from './imp/ClockListener';
+import { ClockListener } from './imp/ClockListener';
 import { MMU } from './MMU';
 import { Ascii } from './utility/Ascii';
 import { InterruptController } from './InterruptController';
 
-export class Cpu extends Hardware implements CloockListener {
+export class Cpu extends Hardware implements ClockListener {
 
     public cpuClockCount: number = 0;
     public pipeLine: number = 1;

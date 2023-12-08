@@ -1,6 +1,6 @@
 import { Hardware } from "./Hardware";
 import { System } from "../System";
-import { CloockListener } from "./imp/ClockListener";
+import { ClockListener } from "./imp/ClockListener";
 
 
 export class Memory extends Hardware {

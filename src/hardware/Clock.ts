@@ -1,15 +1,15 @@
 import { Hardware } from "./Hardware";
-import { CloockListener } from "./imp/ClockListener";
+import { ClockListener } from "./imp/ClockListener";
 
 export class Clock extends Hardware {
 
-    public listenersList: Array<CloockListener> = [];
+    public listenersList: Array<ClockListener> = [];
 
-    constructor(clockInterval: number) {
+    constructor() {
         super(0, 'Clock')
     }
 
-    public initClockListeners(clock: CloockListener) {
+    public initClockListeners(clock: ClockListener) {
         this.listenersList.push(clock);
     }
 
