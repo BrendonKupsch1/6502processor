@@ -34,8 +34,12 @@ export class Cpu extends Hardware implements ClockListener {
         console.log("[HW - " + this.name + " id: " + this.id + " - " + time + "] Received clock pulse - CPU CLock Count: " + this.cpuClockCount);
 
         // pipeline logic
-        if (this.pipeLine == 1) {
+        if (this.pipeLine == 0) {
             this.fetch();
+        }
+
+        if (this.pipeLine == 1) {
+            this.decode();
         }
 
         if (this.pipeLine == 2) {
