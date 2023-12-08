@@ -1,10 +1,11 @@
 import { System } from '../System';
-import Hardware from './Hardware';
+import { Hardware } from './Hardware';
 import { CloockListener } from './imp/ClockListener';
 import { MMU } from './MMU';
 import { Ascii } from './utility/Ascii';
+import { InterruptController } from './InterruptController';
 
-class Cpu extends Hardware implements CloockListener {
+export class Cpu extends Hardware implements CloockListener {
 
     public cpuClockCount: number = 0;
     public pipeLine: number = 1;
@@ -15,6 +16,10 @@ class Cpu extends Hardware implements CloockListener {
     private accNum: number;
     private instructionRegister: number = 0x00;
     private mmu: MMU = null;
+    public opcode: number;
+    public operand: 0x00;
+    private mode: number = 0;
+    private InterruptController = new InterruptController();
 
     constructor() {
        super(0, "CPU");
@@ -56,18 +61,26 @@ class Cpu extends Hardware implements CloockListener {
     }
 
     public decode(): void {
-        if ((this.instructionRegister == 0xA9))
+        if ((this.instructionRegister == 0xA9) || (this.instructionRegister == 0xA2) || (this.instructionRegister == 0xD0))
         {
-
+            this.mmu.setLowBit(this.programCounter);
+            this.programCounter++;
+            this.pipeLine = 1;
         }
 
-        if ((this.instructionRegister == 0xAD))
+        if ((this.instructionRegister == 0xAD) || (this.instructionRegister == 0x8D) || (this.instructionRegister == 0x6D) || (this.instructionRegister == 0xAE)
+        || (this.instructionRegister == 0xAC) || (this.instructionRegister == 0xEC) || (this.instructionRegister == 0xEE))
         {
-
+            this.mmu.setLowBit(this.programCounter);
+            this.programCounter++;
+            this.pipeLine = 2;
         }
 
-        else if (this.pipeLine == 0) {
-            
+        else if (this.pipeLine == 0) 
+        {
+            this.mmu.setHighBit(this.programCounter);
+            this.programCounter++;
+            this.pipeLine = 3;
         }
     }
 
@@ -167,7 +180,8 @@ class Cpu extends Hardware implements CloockListener {
     }
 
     public interruptCheck(): void {
-        
+        // pops key presses into queue 
+        this.log(this.InterruptController.outputBuffer.popQueue().toString());
     }
 
     public writeBack(): void {

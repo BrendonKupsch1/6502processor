@@ -1,4 +1,4 @@
-import Hardware from "./Hardware";
+import { Hardware } from "./Hardware";
 import { System } from "../System";
 import { CloockListener } from "./imp/ClockListener";
 
@@ -12,9 +12,8 @@ export class Memory extends Hardware {
 
 
     constructor() {
-        super("Memory", 0);
+        super(0, "Memory");
         this.log("Memory length: " + this._Memory.length.toString());
-        this.displayMemory(0x14, 2);
     }
 
     public getMAR() {
@@ -56,46 +55,36 @@ export class Memory extends Hardware {
 
     public read(): void {
         this.setMDR(this._Memory[this.getMAR()]);
-
     }
 
     //sets the 
     public write(): void {
         this._Memory[this.getMAR()] = this.getMDR();
-
     }
 
     //sets all values in memory to 0x00
     public initMemory(): void {
         for (let i = 0x00; i < this.hexList.length; i++) {
             this.hexList[i] = 0x00;
-
-
         }
     }
 
     //displays address 0x00 to 0x14 in memory
     public displayMemory(length: number, padding: number): void {
         for (let i = 0x00; i < length; i++) {
-            //checks to see if value is outside of memory 
+            // check if value is outside of memory
             if (i < 0x10000) {
                 this.hexLog(this.hexList[i], padding);
-
             }
             else {
                 console.log("[HW - " + this.name + "id:" + this.id + " - " + new Date() + "]:Address : " + i + "contains Value: ERR [hexValue conversion]: number undefined");
                 break;
             }
-
         }
     }
-
 
     public pulse(): void {
         let time: number = new Date().getTime();
         console.log("[HW - " + this.name + " id: " + this.id + " - " + time + "]: Received clock pulse");
-
     }
-    
-        
 }

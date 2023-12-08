@@ -1,4 +1,4 @@
-export default class Hardware {
+export class Hardware {
     public id: number;
     public name: String;
     private debug: boolean = true;
@@ -12,7 +12,7 @@ export default class Hardware {
     hexLog(num: number, length: number) {
         let hexOutput = num.toString(16).toUpperCase();
         while (hexOutput.length < length) {
-            hexOutput = 0x00 + hexOutput;
+            hexOutput = '0' + hexOutput;
         }
         return hexOutput;
     }
@@ -24,9 +24,7 @@ export default class Hardware {
         }
     }
 
-    
-    
-    getInfo(): string {
-        return `NameL ${this.name}, id: ${this.id}`;
+    setDebug(debug) {
+        this.debug = debug;
     }
 }

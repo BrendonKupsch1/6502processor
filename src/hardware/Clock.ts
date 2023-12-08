@@ -1,15 +1,12 @@
-import Hardware from "./Hardware";
+import { Hardware } from "./Hardware";
 import { CloockListener } from "./imp/ClockListener";
 
 export class Clock extends Hardware {
 
-    public listeners: CloockListener[] = [];
-    private intervalId: NodeJS.Timeout | null = null;
-    private clockInterval: number;
+    public listenersList: Array<CloockListener> = [];
 
     constructor(clockInterval: number) {
-        super("Clock", 0);
-        this.clockInterval = clockInterval;
+        super(0, 'Clock')
     }
 
     public initClockListeners(clock: CloockListener) {
@@ -17,22 +14,16 @@ export class Clock extends Hardware {
     }
 
     public startClock(interval: number) {
-        if (!this.intervalId) {
-            this.intervalId = setInterval(() => this.tick(), this.clockInterval)
-        }
+        var that = this;
+        setInterval(function () {
+            return that.pulseOut();
+        }, interval);
     }
 
-    public stopClock() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId);
-            this.intervalId = null;
+    public pulseOut() {
+        console.log("Clock pulsing");
+        for (let clock of this.listenersList) {
+            clock.pulse();
         }
     }
-
-    private tick(): void {
-        for (const listener of this.listeners) {
-            listener.pulse();
-        }
-    }
-    
 }

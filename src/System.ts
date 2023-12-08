@@ -1,7 +1,7 @@
 // Brendon Kupsch's notes are at the bottom of README.md
 // import statements for hardware
-import Hardware from './hardware/Hardware';
-import Cpu from "./hardware/Cpu";
+import { Hardware } from './hardware/Hardware';
+import { Cpu } from "./hardware/Cpu";
 import { Memory } from "./hardware/Memory";
 // import { toUnicode } from 'punycode';
 import { CloockListener } from './hardware/imp/ClockListener';
@@ -23,6 +23,7 @@ export class System extends Hardware {
     private _CPU : Cpu = null;
     private _Memory : Memory = null;
     private _Clock : Clock = null;
+
 
     constructor() {
         super('System', 0);

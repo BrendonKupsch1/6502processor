@@ -1,4 +1,4 @@
-import Hardware from "./Hardware";
+import { Hardware } from "./Hardware";
 import { Memory } from "./Memory";
 
 export class MMU extends Hardware {
@@ -7,7 +7,7 @@ export class MMU extends Hardware {
     private _highBit: number = null;
 
     constructor(id: number, name: string, debug: boolean, memory: Memory) {
-        super(name, id);
+        super(id, name);
         this.memory = memory;
     }
 
