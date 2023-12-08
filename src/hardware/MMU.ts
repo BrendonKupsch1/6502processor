@@ -56,7 +56,7 @@ export class MMU extends Hardware {
         return (endian);
     }
 
-    public readNow(address: number): number {
+    public readNow(address: number) {
         this.memory.setMAR(address);
         return this.memory.getMDR();
     }

@@ -15,11 +15,12 @@ export class Cpu extends Hardware implements ClockListener {
     public zFlag: number = 0;
     private accNum: number;
     private instructionRegister: number = 0x00;
-    private mmu: MMU = null;
     public opcode: number;
     public operand: 0x00;
     private mode: number = 0;
     private InterruptController = new InterruptController();
+    private logs : boolean = true;
+    private mmu: MMU = null;
 
     constructor() {
        super(0, "CPU");
