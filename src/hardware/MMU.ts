@@ -43,7 +43,7 @@ export class MMU extends Hardware {
         this.memory.log("Memory Dump Finished")
     }
 
-    public writeImediate(address: number, op: number) {
+    public writeImmediate(address: number, op: number) {
         this.memory.setMAR(address);
         this.memory.setMDR(op);
         this.memory.write();
@@ -69,7 +69,7 @@ export class MMU extends Hardware {
 
     public writeToMem(lowBit: number, highBit: number, is: number) {
         var temp: number = parseInt(this.endian(lowBit, highBit), 16);
-        this.writeImediate(temp, is);
+        this.writeImmediate(temp, is);
     }
 
     public readFromMem(lowBit: number, highBit: number) {

@@ -41,101 +41,101 @@ export class System extends Hardware {
 
         // testing programs
         // remove "/* */" to test programs
-        /*
-        // Brendon's lab 2 program
-        this._MMU.writeImediate(0x0000, 0xA9);
-        this._MMU.writeImediate(0x0001, 0x00);
-        this._MMU.writeImediate(0x0002, 0x8D);
-        this._MMU.writeImediate(0x0003, 0x10);
-        this._MMU.writeImediate(0x0004, 0x00);
-        this._MMU.writeImediate(0x0005, 0xA9);
-        this._MMU.writeImediate(0x0006, 0x01);
-        this._MMU.writeImediate(0x0007, 0x8D);
-        this._MMU.writeImediate(0x0008, 0x10);
-        this._MMU.writeImediate(0x0009, 0x01);
-        this._MMU.writeImediate(0x000A, 0xA2);
-        this._MMU.writeImediate(0x000B, 0x00);
-        this._MMU.writeImediate(0x000C, 0xAD);
-        this._MMU.writeImediate(0x000D, 0x10);
-        this._MMU.writeImediate(0x000E, 0x00);
-        this._MMU.writeImediate(0x000F, 0x6D);
-        this._MMU.writeImediate(0x0010, 0x10);
-        this._MMU.writeImediate(0x0011, 0x01);
-        this._MMU.writeImediate(0x0012, 0x8D);
-        this._MMU.writeImediate(0x0013, 0x10);
-        this._MMU.writeImediate(0x0014, 0x02);
-        this._MMU.writeImediate(0x0015, 0xAD);
-        this._MMU.writeImediate(0x0016, 0x10);
-        this._MMU.writeImediate(0x0017, 0x01);
-        this._MMU.writeImediate(0x0018, 0x8D);
-        this._MMU.writeImediate(0x0019, 0x10);
-        this._MMU.writeImediate(0x001A, 0x00);
-        this._MMU.writeImediate(0x001B, 0xAD);
-        this._MMU.writeImediate(0x001C, 0x10);
-        this._MMU.writeImediate(0x001D, 0x02);
-        this._MMU.writeImediate(0x001E, 0x8D);
-        this._MMU.writeImediate(0x001F, 0x10);
-        this._MMU.writeImediate(0x0020, 0x01);
-        this._MMU.writeImediate(0x0021, 0xAD);
-        this._MMU.writeImediate(0x0022, 0x10);
-        this._MMU.writeImediate(0x0023, 0x00);
-        this._MMU.writeImediate(0x0024, 0x95);
-        this._MMU.writeImediate(0x0025, 0x00);
-        this._MMU.writeImediate(0x0026, 0xE8);
-        this._MMU.writeImediate(0x0027, 0xE0);
-        this._MMU.writeImediate(0x0028, 0x0A);
-        this._MMU.writeImediate(0x0029, 0xD0);
-        this._MMU.writeImediate(0x002A, 0xF4);
-        this._MMU.writeImediate(0x002B, 0x60);
-        */
 
         /*
+        // Brendon's lab 2 program
+        this._MMU.writeImmediate(0x0000, 0xA9);
+        this._MMU.writeImmediate(0x0001, 0x00);
+        this._MMU.writeImmediate(0x0002, 0x8D);
+        this._MMU.writeImmediate(0x0003, 0x10);
+        this._MMU.writeImmediate(0x0004, 0x00);
+        this._MMU.writeImmediate(0x0005, 0xA9);
+        this._MMU.writeImmediate(0x0006, 0x01);
+        this._MMU.writeImmediate(0x0007, 0x8D);
+        this._MMU.writeImmediate(0x0008, 0x10);
+        this._MMU.writeImmediate(0x0009, 0x01);
+        this._MMU.writeImmediate(0x000A, 0xA2);
+        this._MMU.writeImmediate(0x000B, 0x00);
+        this._MMU.writeImmediate(0x000C, 0xAD);
+        this._MMU.writeImmediate(0x000D, 0x10);
+        this._MMU.writeImmediate(0x000E, 0x00);
+        this._MMU.writeImmediate(0x000F, 0x6D);
+        this._MMU.writeImmediate(0x0010, 0x10);
+        this._MMU.writeImmediate(0x0011, 0x01);
+        this._MMU.writeImmediate(0x0012, 0x8D);
+        this._MMU.writeImmediate(0x0013, 0x10);
+        this._MMU.writeImmediate(0x0014, 0x02);
+        this._MMU.writeImmediate(0x0015, 0xAD);
+        this._MMU.writeImmediate(0x0016, 0x10);
+        this._MMU.writeImmediate(0x0017, 0x01);
+        this._MMU.writeImmediate(0x0018, 0x8D);
+        this._MMU.writeImmediate(0x0019, 0x10);
+        this._MMU.writeImmediate(0x001A, 0x00);
+        this._MMU.writeImmediate(0x001B, 0xAD);
+        this._MMU.writeImmediate(0x001C, 0x10);
+        this._MMU.writeImmediate(0x001D, 0x02);
+        this._MMU.writeImmediate(0x001E, 0x8D);
+        this._MMU.writeImmediate(0x001F, 0x10);
+        this._MMU.writeImmediate(0x0020, 0x01);
+        this._MMU.writeImmediate(0x0021, 0xAD);
+        this._MMU.writeImmediate(0x0022, 0x10);
+        this._MMU.writeImmediate(0x0023, 0x00);
+        this._MMU.writeImmediate(0x0024, 0x95);
+        this._MMU.writeImmediate(0x0025, 0x00);
+        this._MMU.writeImmediate(0x0026, 0xE8);
+        this._MMU.writeImmediate(0x0027, 0xE0);
+        this._MMU.writeImmediate(0x0028, 0x0A);
+        this._MMU.writeImmediate(0x0029, 0xD0);
+        this._MMU.writeImmediate(0x002A, 0xF4);
+        this._MMU.writeImmediate(0x002B, 0x60);
+        */
+
+        
         // powersProgram()
         // load constant 0
-        this.writeImmediate(0x0000, 0xA9);
-        this.writeImmediate(0x0001, 0x00);
+        this._MMU.writeImmediate(0x0000, 0xA9);
+        this._MMU.writeImmediate(0x0001, 0x00);
         // write acc (0) to 0040
-        this.writeImmediate(0x0002, 0x8D);
-        this.writeImmediate(0x0003, 0x40);
-        this.writeImmediate(0x0004, 0x00);
+        this._MMU.writeImmediate(0x0002, 0x8D);
+        this._MMU.writeImmediate(0x0003, 0x40);
+        this._MMU.writeImmediate(0x0004, 0x00);
         // load constant 1
-        this.writeImmediate(0x0005, 0xA9);
-        this.writeImmediate(0x0006, 0x01);
+        this._MMU.writeImmediate(0x0005, 0xA9);
+        this._MMU.writeImmediate(0x0006, 0x01);
         // add acc (?) to mem 0040 (?)
-        this.writeImmediate(0x0007, 0x6D);
-        this.writeImmediate(0x0008, 0x40);
-        this.writeImmediate(0x0009, 0x00);
+        this._MMU.writeImmediate(0x0007, 0x6D);
+        this._MMU.writeImmediate(0x0008, 0x40);
+        this._MMU.writeImmediate(0x0009, 0x00);
         // write acc ? to 0040
-        this.writeImmediate(0x000A, 0x8D);
-        this.writeImmediate(0x000B, 0x40);
-        this.writeImmediate(0x000C, 0x00);
+        this._MMU.writeImmediate(0x000A, 0x8D);
+        this._MMU.writeImmediate(0x000B, 0x40);
+        this._MMU.writeImmediate(0x000C, 0x00);
         // Load y from memory 0040
-        this.writeImmediate(0x000D, 0xAC);
-        this.writeImmediate(0x000E, 0x40);
-        this.writeImmediate(0x000F, 0x00);
+        this._MMU.writeImmediate(0x000D, 0xAC);
+        this._MMU.writeImmediate(0x000E, 0x40);
+        this._MMU.writeImmediate(0x000F, 0x00);
         // Load x with constant (1) (to make the first system call)
-        this.writeImmediate(0x0010, 0xA2);
-        this.writeImmediate(0x0011, 0x01);
+        this._MMU.writeImmediate(0x0010, 0xA2);
+        this._MMU.writeImmediate(0x0011, 0x01);
         // make the system call to print the value in the y register (3)
-        this.writeImmediate(0x0012, 0xFF);
+        this._MMU.writeImmediate(0x0012, 0xFF);
         // Load x with constant (3) (to make the second system call for the string)
-        this.writeImmediate(0x0013, 0xA2);
-        this.writeImmediate(0x0014, 0x03);
+        this._MMU.writeImmediate(0x0013, 0xA2);
+        this._MMU.writeImmediate(0x0014, 0x03);
         // make the system call to print the value in the y register (3)
-        this.writeImmediate(0x0015, 0xFF);
-        this.writeImmediate(0x0016, 0x50);
-        this.writeImmediate(0x0017, 0x00);
-        // test DO (Branch Not Equal) will be NE and branch (0x0021 contains 0x20 and xReg
-        contains B2)
-        this.writeImmediate(0x0018, 0xD0);
-        this.writeImmediate(0x0019, 0xED);
+        this._MMU.writeImmediate(0x0015, 0xFF);
+        this._MMU.writeImmediate(0x0016, 0x50);
+        this._MMU.writeImmediate(0x0017, 0x00);
+        // test DO (Branch Not Equal) will be NE and branch (0x0021 contains 0x20 and xRegcontains B2)
+        this._MMU.writeImmediate(0x0018, 0xD0);
+        this._MMU.writeImmediate(0x0019, 0xED);
         // globals
-        this.writeImmediate(0x0050, 0x2C);
-        this.writeImmediate(0x0052, 0x00);
+        this._MMU.writeImmediate(0x0050, 0x2C);
+        this._MMU.writeImmediate(0x0052, 0x00);
         this._MMU.memoryDump(0x0000, 0x001A);
         this.log("------------------------");
         this._MMU.memoryDump(0x0050, 0x0053);
-        */
+        
 
         /*
         // systemCallProgram()
