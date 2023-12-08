@@ -2,6 +2,7 @@ import { System } from '../System';
 import Hardware from './Hardware';
 import { CloockListener } from './imp/ClockListener';
 import { MMU } from './MMU';
+import { Ascii } from './utility/Ascii';
 
 class Cpu extends Hardware implements CloockListener {
 
