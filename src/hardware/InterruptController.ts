@@ -5,7 +5,7 @@ import { Queue } from "./utility/Queue";
 export class InterruptController extends Hardware implements Interrupt {
     
     constructor() {
-        super(0, "InterruptController");
+        super(0, "Interrupt Controller");
     }
 
     private hardware = new Array<string>(0xffff);

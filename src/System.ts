@@ -40,7 +40,7 @@ export class System extends Hardware {
         this._MMU = new MMU(0, "MMU", true, this._Memory);
 
         // testing programs
-        // remove "/* */" to test programs
+        // add comments to "/*" and "*/" to test programs
 
         /*
         // Brendon's lab 2 program
@@ -90,7 +90,7 @@ export class System extends Hardware {
         this._MMU.writeImmediate(0x002B, 0x60);
         */
 
-        
+        /*
         // powersProgram()
         // load constant 0
         this._MMU.writeImmediate(0x0000, 0xA9);
@@ -135,57 +135,57 @@ export class System extends Hardware {
         this._MMU.memoryDump(0x00, 0x1A);
         this.log("------------------------");
         this._MMU.memoryDump(0x52, 0x53);
-        
+        */
 
-        /*
+        ///*
         // systemCallProgram()
         // load constant 3
-        this.writeImmediate(0x0000, 0xA9);
-        this.writeImmediate(0x0001, 0x0A);
+        this._MMU.writeImmediate(0x0000, 0xA9);
+        this._MMU.writeImmediate(0x0001, 0x0A);
         // write acc (3) to 0040
-        this.writeImmediate(0x0002, 0x8D);
-        this.writeImmediate(0x0003, 0x40);
-        this.writeImmediate(0x0004, 0x00);
+        this._MMU.writeImmediate(0x0002, 0x8D);
+        this._MMU.writeImmediate(0x0003, 0x40);
+        this._MMU.writeImmediate(0x0004, 0x00);
         // :loop
         // Load y from memory (3)
-        this.writeImmediate(0x0005, 0xAC);
-        this.writeImmediate(0x0006, 0x40);
-        this.writeImmediate(0x0007, 0x00);
+        this._MMU.writeImmediate(0x0005, 0xAC);
+        this._MMU.writeImmediate(0x0006, 0x40);
+        this._MMU.writeImmediate(0x0007, 0x00);
         // Load x with constant (1) (to make the first system call)
-        this.writeImmediate(0x0008, 0xA2);
-        this.writeImmediate(0x0009, 0x01);
+        this._MMU.writeImmediate(0x0008, 0xA2);
+        this._MMU.writeImmediate(0x0009, 0x01);
         // make the system call to print the value in the y register (3)
-        this.writeImmediate(0x000A, 0xFF);
+        this._MMU.writeImmediate(0x000A, 0xFF);
         // Load x with constant (3) (to make the second system call for the string)
-        this.writeImmediate(0x000B, 0xA2);
-        this.writeImmediate(0x000C, 0x03);
+        this._MMU.writeImmediate(0x000B, 0xA2);
+        this._MMU.writeImmediate(0x000C, 0x03);
         // make the system call to print the value in the y register (3)
-        this.writeImmediate(0x000D, 0xFF);
-        this.writeImmediate(0x000E, 0x50);
-        this.writeImmediate(0x000F, 0x00);
+        this._MMU.writeImmediate(0x000D, 0xFF);
+        this._MMU.writeImmediate(0x000E, 0x50);
+        this._MMU.writeImmediate(0x000F, 0x00);
         // load the string
         // 0A 48 65 6c 6c 6f 20 57 6f 72 6c 64 21
-        this.writeImmediate(0x0050, 0x0A);
-        this.writeImmediate(0x0051, 0x48);
-        this.writeImmediate(0x0052, 0x65);
-        this.writeImmediate(0x0053, 0x6C);
-        this.writeImmediate(0x0054, 0x6C);
-        this.writeImmediate(0x0055, 0x6F);
-        this.writeImmediate(0x0056, 0x20);
-        this.writeImmediate(0x0057, 0x57);
-        this.writeImmediate(0x0058, 0x6F);
-        this.writeImmediate(0x0059, 0x72);
-        this.writeImmediate(0x005A, 0x6C);
-        this.writeImmediate(0x005B, 0x64);
-        this.writeImmediate(0x005C, 0x21);
-        this.writeImmediate(0x005D, 0x0A);
-        this.writeImmediate(0x005E, 0x00);
-        this.memoryDump(0x0000, 0x0010);
-        this.altLog("---------------------------")
-        this.memoryDump(0x0040, 0x0043);
-        this.altLog("---------------------------")
-        this.memoryDump(0x0050, 0x005C);
-        */
+        this._MMU.writeImmediate(0x0050, 0x0A);
+        this._MMU.writeImmediate(0x0051, 0x48);
+        this._MMU.writeImmediate(0x0052, 0x65);
+        this._MMU.writeImmediate(0x0053, 0x6C);
+        this._MMU.writeImmediate(0x0054, 0x6C);
+        this._MMU.writeImmediate(0x0055, 0x6F);
+        this._MMU.writeImmediate(0x0056, 0x20);
+        this._MMU.writeImmediate(0x0057, 0x57);
+        this._MMU.writeImmediate(0x0058, 0x6F);
+        this._MMU.writeImmediate(0x0059, 0x72);
+        this._MMU.writeImmediate(0x005A, 0x6C);
+        this._MMU.writeImmediate(0x005B, 0x64);
+        this._MMU.writeImmediate(0x005C, 0x21);
+        this._MMU.writeImmediate(0x005D, 0x0A);
+        this._MMU.writeImmediate(0x005E, 0x00);
+        this._MMU.memoryDump(0x0000, 0x0010);
+        this.log("---------------------------")
+        this._MMU.memoryDump(0x0040, 0x0043);
+        this.log("---------------------------")
+        this._MMU.memoryDump(0x0050, 0x005C);
+        //*/
         
 
 

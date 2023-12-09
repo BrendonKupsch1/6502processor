@@ -5,6 +5,7 @@ export class MMU extends Hardware {
     private memory: Memory = null;
     private _lowBit: number = null;
     private _highBit: number = null;
+    private stringTemp: string = null;
 
     constructor(id: number, name: string, debug: boolean, memory: Memory) {
         super(id, name);
@@ -32,11 +33,16 @@ export class MMU extends Hardware {
         this.memory.log("Initialized Memory");
         this.memory.log("Memory Dump Debug");
         this.memory.log("------------------------")
-        let count = first;
+        let count: number = first;
         while (count <= second) {
             let mem = this.memory.getMemory();
+            let tempMemCount = "00";
+            // kept getting an error where the mem[count] was undefined, this checks for that
+            if (mem[count] !== undefined) {
+                tempMemCount = mem[count].toString(16).toUpperCase();
+            }
 
-            this.memory.log("ADDR: " + '000' + count.toString(16).toUpperCase() + ": | :" + mem[count].toString(16).toString().toUpperCase());
+            this.log("ADDR: " + '000' + count.toString(16).toUpperCase() + ": | :"  + tempMemCount);
             count += 0x01;
         }
         this.memory.log("------------------------")
