@@ -32,6 +32,4 @@ export class Queue {
             return -1;
         }
     }
-
-    
 }

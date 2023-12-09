@@ -1,7 +1,7 @@
 export class Hardware {
     public id: number;
     public name: String;
-    private debug: boolean = true;
+    private debug: boolean = false;
 
     public constructor(iD, name) {
         this.id = iD;
