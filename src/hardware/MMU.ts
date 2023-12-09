@@ -36,15 +36,13 @@ export class MMU extends Hardware {
         let count: number = first;
         while (count <= second) {
             let mem = this.memory.getMemory();
-            let tempCount = 0;
-            if (count == first) {
-                tempCount = 0x00;
-            }
-            if (count == second) {
-                tempCount = 0xff;
+            let tempMemCount: string = null;
+            // kept getting an error where the mem[count] was undefined, this checks for that
+            if (mem[count] !== undefined) {
+                tempMemCount = mem[count].toString(16).toUpperCase();
             }
 
-            this.log("ADDR: " + '000' + count.toString(16).toUpperCase() + ": | :"  + mem[tempCount].toString(16).toUpperCase());
+            this.log("ADDR: " + '000' + count.toString(16).toUpperCase() + ": | :"  + tempMemCount);
             count += 0x01;
         }
         this.memory.log("------------------------")
