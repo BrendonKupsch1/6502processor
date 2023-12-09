@@ -93,7 +93,7 @@ export class Cpu extends Hardware implements ClockListener {
         if (this.instructionRegister == 0xA9) {
             // load constant with read now in acc
             this.accNum = this.mmu.readNow(this.programCounter);
-            this.programCounter++;
+            this.pipeLine = 5;
         }
         else if (this.instructionRegister == 0xAD) {
             // load acc from mem
@@ -141,7 +141,7 @@ export class Cpu extends Hardware implements ClockListener {
         else if (this.instructionRegister == 0xEC) {
             if (this.xRegister == this.mmu.readNow(this.programCounter)) {
                 this.zFlag = 1;
-                this.pipeLine =5;
+                this.pipeLine = 5;
             }
         }
         else if (this.instructionRegister == 0xD0) {
@@ -179,7 +179,6 @@ export class Cpu extends Hardware implements ClockListener {
         else if (this.instructionRegister == 0x00) {
             // break
             process.exit();
-            this.pipeLine = 0;
         }
 
     }
