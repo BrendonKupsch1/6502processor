@@ -42,5 +42,4 @@ export class VirtualKeyboard extends Hardware implements Interrupt {
             this.InterruptController.acceptInterrupt(this);
         }.bind(this));
     }
-
 }

@@ -9,8 +9,6 @@ export class Memory extends Hardware {
     private _MDR: number = 0x00;
     private _Memory = new Array<number>(0xffff)
 
-
-
     constructor() {
         super(0, "Memory");
         this.log("Memory length: " + this._Memory.length.toString());
