@@ -36,7 +36,7 @@ export class MMU extends Hardware {
         let count: number = first;
         while (count <= second) {
             let mem = this.memory.getMemory();
-            let tempMemCount = "00";
+            let tempMemCount: string = null;
             // kept getting an error where the mem[count] was undefined, this checks for that
             if (mem[count] !== undefined) {
                 tempMemCount = mem[count].toString(16).toUpperCase();

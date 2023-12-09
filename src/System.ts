@@ -4,7 +4,6 @@ import { Hardware } from './hardware/Hardware';
 import { Cpu } from "./hardware/Cpu";
 import { Memory } from "./hardware/Memory";
 // import { toUnicode } from 'punycode';
-import { ClockListener } from './hardware/imp/ClockListener';
 import { Clock } from './hardware/Clock';
 import { MMU } from './hardware/MMU';
 
