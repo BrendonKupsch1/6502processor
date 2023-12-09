@@ -36,7 +36,7 @@ export class MMU extends Hardware {
         while (count <= second) {
             let mem = this.memory.getMemory();
 
-            this.memory.log("ADDR: " + '000' + count.toString(16).toUpperCase() + ": | :" + mem[count].toString(16).toUpperCase());
+            this.memory.log("ADDR: " + '000' + count.toString(16).toUpperCase() + ": | :" + mem[count].toString(16).toString().toUpperCase());
             count += 0x01;
         }
         this.memory.log("------------------------")

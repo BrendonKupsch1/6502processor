@@ -132,9 +132,9 @@ export class System extends Hardware {
         // globals
         this._MMU.writeImmediate(0x0050, 0x2C);
         this._MMU.writeImmediate(0x0052, 0x00);
-        this._MMU.memoryDump(0x0000, 0x001A);
+        this._MMU.memoryDump(0x00, 0x1A);
         this.log("------------------------");
-        this._MMU.memoryDump(0x0050, 0x0053);
+        this._MMU.memoryDump(0x52, 0x53);
         
 
         /*
