@@ -89,7 +89,7 @@ export class System extends Hardware {
         this._MMU.writeImmediate(0x002B, 0x60);
         */
 
-        ///*
+        /*
         // powersProgram()
         // load constant 0
         this._MMU.writeImmediate(0x0000, 0xA9);
@@ -134,9 +134,9 @@ export class System extends Hardware {
         this._MMU.memoryDump(0x00, 0x1A);
         this.log("------------------------");
         this._MMU.memoryDump(0x52, 0x53);
-        //*/
+        */
 
-        /*
+        ///*
         // systemCallProgram()
         // load constant 3
         this._MMU.writeImmediate(0x0000, 0xA9);
@@ -184,7 +184,7 @@ export class System extends Hardware {
         this._MMU.memoryDump(0x0040, 0x0043);
         this.log("---------------------------")
         this._MMU.memoryDump(0x0050, 0x005C);
-        */
+        //*/
         
 
 
