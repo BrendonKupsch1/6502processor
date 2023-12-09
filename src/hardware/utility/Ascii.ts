@@ -110,5 +110,106 @@ export class Ascii {
         else if (byte == 0x39) {
             return "9";
         }
+
+        // special characters
+        else if (byte == 0x20) {
+            return " ";
+        }
+        else if (byte == 0x21) {
+            return "!";
+        }
+        else if (byte == 0x22) {
+            return "\"";
+        }
+        else if (byte == 0x23) {
+            return "#";
+        }
+        else if (byte == 0x24) {
+            return "$";
+        }
+        else if (byte == 0x25) {
+            return "%";
+        }
+        else if (byte == 0x26) {
+            return "&";
+        }
+        else if (byte == 0x27) {
+            return "'";
+        }
+        else if (byte == 0x28) {
+            return "(";
+        }
+        else if (byte == 0x29) {
+            return ")";
+        }
+        else if (byte == 0x2A) {
+            return "*";
+        }
+        else if (byte == 0x2B) {
+            return "+";
+        }
+        else if (byte == 0x2C) {
+            return ",";
+        }
+        else if (byte == 0x2D) {
+            return "-";
+        }
+        else if (byte == 0x2E) {
+            return ".";
+        }
+        else if (byte == 0x2F) {
+            return "/";
+        }
+        else if (byte == 0x3A) {
+            return ":";
+        }
+        else if (byte == 0x3B) {
+            return ";";
+        }
+        else if (byte == 0x3C) {
+            return "<";
+        }
+        else if (byte == 0x3D) {
+            return "=";
+        }
+        else if (byte == 0x3E) {
+            return ">";
+        }
+        else if (byte == 0x3F) {
+            return "?";
+        }
+        else if (byte == 0x40) {
+            return "@";
+        }
+        else if (byte == 0x5B) {
+            return "[";
+        }
+        else if (byte == 0x5C) {
+            return "\\";
+        }
+        else if (byte == 0x5D) {
+            return "]";
+        }
+        else if (byte == 0x5E) {
+            return "^";
+        }
+        else if (byte == 0x5F) {
+            return "_";
+        }
+        else if (byte == 0x60) {
+            return "`";
+        }
+        else if (byte == 0x7B) {
+            return "{";
+        }
+        else if (byte == 0x7C) {
+            return "|";
+        }
+        else if (byte == 0x7D) {
+            return "}";
+        }
+        else if (byte == 0x7E) {
+            return "~";
+        }
     }
 }
